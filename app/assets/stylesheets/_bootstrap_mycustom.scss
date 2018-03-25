@@ -1,0 +1,11 @@
+//ヘッダーの高さだけpadding
+.jumbotron {
+  margin-top: 50px;
+}
+
+// jumbotronに画像を挿入
+.jumbotron {
+  background:url(/images/PA144675.JPG) center no-repeat;
+  background-size: cover;
+  color: white;
+}

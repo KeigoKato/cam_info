@@ -1,20 +1,18 @@
-.page-header
-  %h1
-    Example page header
-    %small Subtext for header
-%p#notice= notice
-%h1 Pictures
-%table
-  %thead
-    %tr
-      %th Image
-      %th{:colspan => "3"}
-  %tbody
-    - @pictures.each do |picture|
-      %tr
-        %td= picture.image
-        %td= link_to 'Show', picture
-        %td= link_to 'Edit', edit_picture_path(picture)
-        %td= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Picture', new_picture_path
+-# ヘッダーを部分テンプレートを使う。全てのページで使用できる。
+= render "shared/header"
+
+.jumbotron.special
+  .container
+    %h1 ようこそ
+    %p ここはサブタイトル
+    %p
+      %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} 投稿
+
+
+-# サムネイル画像を連続して表示するために部分テンプレートを使う。
+.container
+  = render "thumbnails"
+
+
+-# ヘッダーを部分テンプレートを使う。全てのページで使用できる。
+= render "shared/footer"
