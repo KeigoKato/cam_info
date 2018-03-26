@@ -1,6 +1,15 @@
 = render "shared/header"
 
-
-%h1 New Picture
-= render 'form', picture: @picture
-= link_to 'Back', root_path
+.container
+  %h1 New Picture
+  = render 'form', picture: @picture
+.container
+  .row
+    .col-sm-12.col-md-8
+      .thumbnail
+        .preview.text-center
+    .col-sm-12.col-md-4
+      .thumbnail
+        %p ここにexifリストを入れる
+.container
+  = link_to 'Back', root_path

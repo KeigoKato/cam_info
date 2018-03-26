@@ -11,8 +11,9 @@
 
 -# サムネイル画像を連続して表示するために部分テンプレートを使う。
 .container
-  - @pictures.each do |picture|
-    = render "thumbnails", picture: picture
+  .row
+    - @pictures.each do |picture|
+      = render "thumbnails", picture: picture
 
 
 -# ヘッダーを部分テンプレートを使う。全てのページで使用できる。
