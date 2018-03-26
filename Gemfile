@@ -15,12 +15,17 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+
+# ここから追加
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "pry-rails"
 gem "haml-rails"
 gem "erb2haml"
 gem "jquery-rails"
 gem 'autoprefixer-rails'
+
+gem 'carrierwave'
+gem 'rmagick'
 
 
 group :development, :test do
