@@ -8,8 +8,7 @@
         - @picture.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :image
-    = f.text_field :image, id: :picture_image
+    = f.file_field :image
   .actions
     = f.submit
 
