@@ -27,6 +27,8 @@ gem 'autoprefixer-rails'
 gem 'carrierwave'
 gem 'rmagick'
 
+gem "mini_exiftool"
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

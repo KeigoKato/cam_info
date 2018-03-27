@@ -22,7 +22,7 @@ $(function(){
                   width: "100%",
                   class: "preview",
                   title: file.name
-              }));
+        }));
       };
     })(file);
 
