@@ -29,23 +29,38 @@ $(function(){
         // EXIF.getDataでexif情報を解析
         EXIF.getData(data, function() {
           var DateTimeOriginal = EXIF.getTag(this,'DateTimeOriginal');
+          var Make = EXIF.getTag(this, "Make");
+          var Model = EXIF.getTag(this,'Model');
+          var LensType = EXIF.getTag(this, "undefined")
+          var MeteringMode = EXIF.getTag(this, "MeteringMode")
+          var PixelXDimension= EXIF.getTag(this,'PixelXDimension');
+          var PixelYDimension= EXIF.getTag(this,'PixelYDimension');
           var ExposureTime = EXIF.getTag(this,'ExposureTime');
+          var ExposureBias = EXIF.getTag(this,'ExposureBias');
           var ISOSpeedRatings = EXIF.getTag(this,'ISOSpeedRatings');
           var FNumber = EXIF.getTag(this,'FNumber');
           var FocalLength = EXIF.getTag(this,'FocalLength');
           var WhiteBalance = EXIF.getTag(this,'WhiteBalance');
-          var Model = EXIF.getTag(this,'Model');
           var Flash = EXIF.getTag(this,'Flash');
-          $("#exif").html('<p>' + 
+          $("#exif").html('<p>' +
             '撮影日時 : ' + DateTimeOriginal + '<br>' +
+            'カメラメーカー : ' + Make + '<br>' +
+            'カメラモデル : ' + Model + '<br>' +
+            'レンズ : ' + LensType + '<br>' +
+            '測光モード : ' + MeteringMode + '<br>' +
+            'イメージサイズ : ' + PixelXDimension + 'x' + PixelYDimension + '<br>' +
             '露出時間 : ' + ExposureTime + ' (1/' + (1 / ExposureTime) + ') 秒<br>' +
+            '露光感度 : ' + ExposureBias + '<br>' +
             'ISO感度 : ' + ISOSpeedRatings + '<br>' +
             '絞り : ' + FNumber + '<br>' +
             '焦点距離 : ' + FocalLength + '<br>' +
             'ホワイトバランス : ' + WhiteBalance + '<br>' +
-            'カメラモデル : ' + Model + '<br>' +
-            'フラッシュ : ' + Flash + 
+            'フラッシュ : ' + Flash +
           '</p>');
+          debugger;
+
+
+
         });
       };
     })(file);
