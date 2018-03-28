@@ -29,7 +29,11 @@ class PicturesController < ApplicationController
     respond_to do |format|
       if @picture.save
         format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        # redirect_to picture_path(@picture.id)と同じ意味。
+        # pictures#showのビューが開かれる。
+        # showビュー内にある変数noticeに文字列が渡される。
         format.json { render :show, status: :created, location: @picture }
+        # URLはそのままでビューだけ表示するのがrender, URLごと飛ぶのがredirect_to
       else
         format.html { render :new }
         format.json { render json: @picture.errors, status: :unprocessable_entity }

@@ -48,7 +48,7 @@ $(function(){
             'カメラモデル : ' + Model + '<br>' +
             'レンズ : ' + LensType + '<br>' +
             '測光モード : ' + MeteringMode + '<br>' +
-            'イメージサイズ : ' + PixelXDimension + 'x' + PixelYDimension + '<br>' +
+            'イメージサイズ : ' + PixelXDimension + ' x ' + PixelYDimension + '<br>' +
             '露出時間 : ' + ExposureTime + ' (1/' + (1 / ExposureTime) + ') 秒<br>' +
             '露光感度 : ' + ExposureBias + '<br>' +
             'ISO感度 : ' + ISOSpeedRatings + '<br>' +
@@ -57,10 +57,6 @@ $(function(){
             'ホワイトバランス : ' + WhiteBalance + '<br>' +
             'フラッシュ : ' + Flash +
           '</p>');
-          debugger;
-
-
-
         });
       };
     })(file);

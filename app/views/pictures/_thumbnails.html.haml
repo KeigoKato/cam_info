@@ -1,9 +1,10 @@
 .col-sm-12.col-md-4
   .thumbnail
-    = image_tag picture.image
+    = link_to picture_path(picture) do
+      = image_tag picture.image
     .caption
       %h3 Thumbnail label
       %p ...
       %p
-        %a.btn.btn-primary{:href => "#", :role => "button"} 詳しく見る
-        %a.btn.btn-default{:href => "#", :role => "button"} Button
+        %a.btn.btn-default{:href => picture_path(picture), :role => "button"} 詳しく見る
+        %a.btn.btn-primary{:href => edit_picture_path(picture), :role => "button"} 編集
