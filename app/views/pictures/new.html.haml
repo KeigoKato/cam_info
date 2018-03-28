@@ -1,15 +1,10 @@
 = render "shared/header"
 
 .container
-  %h1 New Picture
+  %h1 画像を新規投稿
   = render 'form', picture: @picture
-.container
-  .row
-    .col-sm-12.col-md-8
-      .thumbnail
-        .preview.text-center
-    .col-sm-12.col-md-4
-      .thumbnail
-        %p#exif exif情報
+
+= render "/shared/preview", picture: @picture
+
 .container
   = link_to 'Back', root_path
