@@ -9,5 +9,17 @@
           %li= message
   .field
     = f.file_field :image
+  -# .container
+  -#   .row
+  -#     .col-sm-12.col-md-8
+  -#       .thumbnail
+  -#         - if request.path_info == new_picture_path
+  -#           .preview.text-center
+  -#         - elsif request.path_info == edit_picture_path(picture)
+  -#           .preview.text-center
+  -#             = image_tag picture.image
+  -#     .col-sm-12.col-md-4
+  -#       .thumbnail
+  -#         %p#exif exif情報
   .actions
     = f.submit
