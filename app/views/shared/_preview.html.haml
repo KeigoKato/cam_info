@@ -1,11 +1,11 @@
 .container
   .row
     .col-sm-12.col-md-8
-      .thumbnail
+      .thumbnail.text-center
         - if request.path_info == new_picture_path
-          .preview.text-center
+          %canvas#canvas
         - elsif request.path_info == edit_picture_path(picture)
-          .preview.text-center
+          %canvas#canvas
             = image_tag picture.image
     .col-sm-12.col-md-4
       .thumbnail
