@@ -7,7 +7,11 @@
         -# - elsif request.path_info == edit_picture_path(picture)
         -#   #canvas
         -#     = image_tag picture.image
-        #preview
+        - if request.path_info == new_picture_path
+          #preview
+        - elsif request.path_info == edit_picture_path(picture)
+          #preview
+            = image_tag picture.image
     .col-sm-12.col-md-4
       .thumbnail
         %p#exif exif情報
