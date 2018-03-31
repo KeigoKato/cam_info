@@ -2,11 +2,12 @@
   .row
     .col-sm-12.col-md-8
       .thumbnail.text-center
-        - if request.path_info == new_picture_path
-          %canvas#canvas
-        - elsif request.path_info == edit_picture_path(picture)
-          #canvas
-            = image_tag picture.image
+        -# - if request.path_info == new_picture_path
+        -#   %canvas#canvas
+        -# - elsif request.path_info == edit_picture_path(picture)
+        -#   #canvas
+        -#     = image_tag picture.image
+        %canvas#canvas
     .col-sm-12.col-md-4
       .thumbnail
         %p#exif exif情報

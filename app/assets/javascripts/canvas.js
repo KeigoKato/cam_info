@@ -4,6 +4,16 @@ $(function() {
   const THUMBNAIL_WIDTH = 740; // 画像リサイズ後の横の長さの最大値
   const THUMBNAIL_HEIGHT = 555; // 画像リサイズ後の縦の長さの最大値
 
+
+  function sleep(waitMsec) {
+    var startMsec = new Date();
+    // 指定ミリ秒間、空ループ。CPUは常にビジー。
+    while (new Date() - startMsec < waitMsec);
+  }
+
+
+
+
   // ファイルが選択されたら
   $('input[type=file]').change(function() {
 
@@ -39,6 +49,13 @@ $(function() {
         var canvas = $('#canvas')
                      .attr('width', width)
                      .attr('height', height);
+
+        console.log("before sleep 500ms")
+
+        sleep(500);
+
+        console.log("after sleep 500ms")
+
         var ctx = canvas[0].getContext('2d');
         // canvasに既に描画されている画像をクリア
         ctx.clearRect(0,0,width,height);
