@@ -13,9 +13,10 @@ $(function() {
 
 
 
-
+  console.log("first console log")
   // ファイルが選択されたら
   $('input[type=file]').change(function() {
+    console.log("file was changed")
 
     // ファイルを取得
     file = $(this).prop('files')[0];
