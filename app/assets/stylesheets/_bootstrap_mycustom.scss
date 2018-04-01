@@ -5,7 +5,18 @@
 
 // jumbotronに画像を挿入
 .jumbotron {
-  background:url(/images/PA144675.JPG) center no-repeat;
+  background:url(/images/topImage.jpg) center no-repeat;
   background-size: cover;
   color: white;
 }
+
+.voffset2  { margin-top: 2px; }
+.voffset5 { margin-top: 5px; }
+.voffset10 { margin-top: 10px; }
+.voffset15 { margin-top: 15px; }
+.voffset30 { margin-top: 30px; }
+.voffset40 { margin-top: 40px; }
+.voffset60 { margin-top: 60px; }
+.voffset80 { margin-top: 80px; }
+.voffset100 { margin-top: 100px; }
+.voffset150 { margin-top: 150px; }

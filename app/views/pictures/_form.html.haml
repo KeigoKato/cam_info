@@ -7,7 +7,13 @@
       %ul
         - @picture.errors.full_messages.each do |message|
           %li= message
-  .field
-    = f.file_field :image
-  .actions
-    = f.submit
+  .row.voffset20
+    .col-lg-6
+      %input{id: "lefile", type: "file", style: "display:none"}
+      .input-group
+        %input{type: "text", id: "photoCover", class: "form-control", placeholder: "select file..."}
+        %span{class: "input-group-btn"}
+          %button{type: "button", class: "btn btn-info", onclick: "$('input[id=lefile]').click();"} Browse
+          %button.btn.btn-primary{:type => "submit"} Submit
+      .input-group
+

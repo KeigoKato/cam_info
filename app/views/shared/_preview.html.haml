@@ -1,17 +1,14 @@
 .container
-  .row
-    .col-sm-12.col-md-8
+  .row.voffset10
+    .col-sm-12.col-md-7
       .thumbnail.text-center
-        -# - if request.path_info == new_picture_path
-        -#   %canvas#canvas
-        -# - elsif request.path_info == edit_picture_path(picture)
-        -#   #canvas
-        -#     = image_tag picture.image
         - if request.path_info == new_picture_path
           #preview
+            %h1 ここに画像が表示されます
         - elsif request.path_info == edit_picture_path(picture)
           #preview
             = image_tag picture.image
-    .col-sm-12.col-md-4
+            %h1 ここに画像が表示されます
+    .col-sm-12.col-md-5
       .thumbnail
         %p#exif exif情報

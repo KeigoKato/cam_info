@@ -1,6 +1,8 @@
 $(document).on('turbolinks:load', function() { 
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
+  console.log("first action")
   $('form').on('change', 'input[type="file"]', function(e) {
+    console.log("file was changed")
     var file = e.target.files[0],
         reader = new FileReader(),
         $preview = $("#preview");
@@ -32,7 +34,6 @@ $(document).on('turbolinks:load', function() {
           var Make = EXIF.getTag(this, "Make");
           var Model = EXIF.getTag(this,'Model');
           var LensType = EXIF.getTag(this, "undefined")
-          var MeteringMode = EXIF.getTag(this, "MeteringMode")
           var PixelXDimension= EXIF.getTag(this,'PixelXDimension');
           var PixelYDimension= EXIF.getTag(this,'PixelYDimension');
           var ExposureTime = EXIF.getTag(this,'ExposureTime');
@@ -47,7 +48,6 @@ $(document).on('turbolinks:load', function() {
             'カメラメーカー : ' + Make + '<br>' +
             'カメラモデル : ' + Model + '<br>' +
             'レンズ : ' + LensType + '<br>' +
-            '測光モード : ' + MeteringMode + '<br>' +
             'イメージサイズ : ' + PixelXDimension + ' x ' + PixelYDimension + '<br>' +
             '露出時間 : ' + ExposureTime + ' (1/' + (1 / ExposureTime) + ') 秒<br>' +
             '露光感度 : ' + ExposureBias + '<br>' +
