@@ -1,6 +1,41 @@
-.container
+.container.top_container
+
   .row.voffset10
-    .col-sm-12.col-md-7
+    .col-md-4
+      .row
+        %h1.text-center 画像を新規投稿
+      .row
+        = form_for @picture do |f|
+
+
+          - if @picture.errors.any?
+            #error_explanation
+              %h2
+                = pluralize(@picutre.errors.count, "error")
+                prohibited this picture from being saved:
+              %ul
+                - @picture.errors.full_messages.each do |message|
+                  %li= message
+
+
+          = f.file_field :image, id: "lefile", style: "display: none"
+          %span{class: "input-group-btn"}
+            .row
+              .col-sm-6
+                %button{type: "button",
+                        class: "btn btn-info btn-lg center-block",
+                        onclick: "$('input[id=lefile]').click();"} 画像ファイルを選択
+              .col-sm-6
+                %button.btn.btn-primary{:type => "submit", class: "btn btn-lg center-block"} exif情報を取得
+
+            -# ここからexifのテーブルを作る
+            -# .row
+
+        .row.voffset10
+          .col-sm-12.col-sm-4
+            %button.btn.btn-warning{:type => "button", href: root_path, class: "center-block"} トップへ
+
+    .col-sm-12.col-md-8.voffset10
       .thumbnail.text-center
         - if request.path_info == new_picture_path
           #preview
@@ -9,6 +44,6 @@
           #preview
             = image_tag picture.image
             %h1 ここに画像が表示されます
-    .col-sm-12.col-md-5
-      .thumbnail
-        %p#exif exif情報
+    -# .col-sm-12.col-md-5
+    -#   .thumbnail
+    -#     %p#exif exif情報

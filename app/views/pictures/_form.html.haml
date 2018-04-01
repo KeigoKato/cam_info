@@ -9,11 +9,12 @@
           %li= message
   .row.voffset20
     .col-lg-6
-      %input{id: "lefile", type: "file", style: "display:none"}
+      = f.file_field :image, id: "lefile", style: "display: none"
       .input-group
-        %input{type: "text", id: "photoCover", class: "form-control", placeholder: "select file..."}
         %span{class: "input-group-btn"}
           %button{type: "button", class: "btn btn-info", onclick: "$('input[id=lefile]').click();"} Browse
+          // このボタンを押したということは#lefileを押したことと同じ。
+          // #lefileを表示するとおかしなレイアウトになるから隠しておけばいい。
           %button.btn.btn-primary{:type => "submit"} Submit
       .input-group
 
