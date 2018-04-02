@@ -10,22 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401044214) do
+ActiveRecord::Schema.define(version: 20180402122724) do
 
   create_table "exifs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "dateTime"
+    t.string "dataTime"
     t.string "make"
-    t.string "model"
+    t.string "cameraModel"
+    t.string "imageSize"
     t.string "lensType"
-    t.integer "pixelX"
-    t.integer "pixelY"
-    t.string "exposureTime"
-    t.integer "exopsureBias"
-    t.integer "isoSpeed"
-    t.integer "fNumber"
-    t.integer "focalLength"
     t.string "whiteBalance"
+    t.string "orientation"
+    t.string "fileType"
+    t.string "ISO"
+    t.string "focalLength"
+    t.string "exposureBias"
+    t.string "exposureTime"
+    t.string "fNumber"
+    t.string "focusDistance"
     t.string "flash"
+    t.string "GPSLatitude"
+    t.string "GPSLongitude"
+    t.integer "picture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +39,22 @@ ActiveRecord::Schema.define(version: 20180401044214) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "dataTime"
+    t.string "make"
+    t.string "model"
+    t.string "imageSize"
+    t.string "lensType"
+    t.string "whiteBalace"
+    t.string "orientation"
+    t.string "fileType"
+    t.integer "ISO"
+    t.string "focalLength"
+    t.integer "exposureBias"
+    t.integer "fNumber"
+    t.string "focusDistance"
+    t.string "flash"
+    t.string "GPSLatitude"
+    t.string "GPSLongitude"
   end
 
 end

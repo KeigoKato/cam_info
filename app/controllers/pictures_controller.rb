@@ -10,11 +10,13 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
+    @picture = Picture.find(params[:id])
   end
 
   # GET /pictures/new
   def new
     @picture = Picture.new
+    @exif = Exif.new
   end
 
   # GET /pictures/1/edit
@@ -25,20 +27,11 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = Picture.new(picture_params)
-
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
-        # redirect_to picture_path(@picture.id)と同じ意味。
-        # pictures#showのビューが開かれる。
-        # showビュー内にある変数noticeに文字列が渡される。
-        format.json { render :show, status: :created, location: @picture }
-        # URLはそのままでビューだけ表示するのがrender, URLごと飛ぶのがredirect_to
-      else
-        format.html { render :new }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
-    end
+    @picture.save
+    exifData = @picture.get_exif_data.merge(picture_id: @picture.id)
+    exif = Exif.new(exifData)
+    exif.save
+    redirect_to root_path
   end
 
   # PATCH/PUT /pictures/1
@@ -75,4 +68,5 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:image)
     end
+
 end

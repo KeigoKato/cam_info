@@ -23,17 +23,14 @@
             .row
               .col-sm-6
                 %button{type: "button",
-                        class: "btn btn-info btn-lg center-block",
-                        onclick: "$('input[id=lefile]').click();"} 画像ファイルを選択
+                        class: "btn btn-default btn-lg btn-block",
+                        onclick: "$('input[id=lefile]').click();"} 画像を選択
               .col-sm-6
-                %button.btn.btn-primary{:type => "submit", class: "btn btn-lg center-block"} exif情報を取得
-
-            -# ここからexifのテーブルを作る
-            -# .row
+                %button.btn.btn-primary.btn-lg.btn-block{:type => "submit"} exif情報を取得
 
         .row.voffset10
           .col-sm-12.col-sm-4
-            %button.btn.btn-warning{:type => "button", href: root_path, class: "center-block"} トップへ
+            %button.btn.btn-warning.btn-block.btn-lg{:type => "button", href: root_path, class: "center-block"} トップへ
 
     .col-sm-12.col-md-8.voffset10
       .thumbnail.text-center
