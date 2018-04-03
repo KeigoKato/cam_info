@@ -2,6 +2,7 @@ class Picture < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   has_one :exif, dependent: :destroy
+  acts_as_taggable
 
   def get_exif_data()
     image = self.image.file.file
