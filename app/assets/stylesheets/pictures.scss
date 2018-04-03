@@ -10,3 +10,12 @@
 .preview img {
   width: 100%;
 }
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
+.thumbnail.text-center {
+  min-height: 555px;
+  min-width: 740px;
+}
