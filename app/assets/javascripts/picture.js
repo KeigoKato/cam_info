@@ -1,5 +1,5 @@
 $(function(){
-  $(document).on('ready page:load', function(){
-    $('#article-tags').tagit()
+  $(document).on('turbolinks:load', function(){
+    $('#picture-tags').tagit()
   })
 })
