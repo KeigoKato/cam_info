@@ -33,6 +33,7 @@ gem 'jquery-turbolinks'
 
 gem 'acts-as-taggable-on'
 gem 'jquery-ui-rails'
+gem "gon"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
