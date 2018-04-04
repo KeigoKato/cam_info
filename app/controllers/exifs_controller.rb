@@ -1,0 +1,2 @@
+class ExifsController < ApplicationController
+end

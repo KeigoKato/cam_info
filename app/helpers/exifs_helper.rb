@@ -1,0 +1,2 @@
+module ExifsHelper
+end
