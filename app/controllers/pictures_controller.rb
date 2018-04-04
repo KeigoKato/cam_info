@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_picture_tags_to_gon
 
   # GET /pictures
   # GET /pictures.json
@@ -66,5 +67,9 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:image, :tag_list)
     end
+
+    # def set_picture_tags_to_gon
+    #   gon.picture_tags = @picture.tag_list
+    # end
 
 end
