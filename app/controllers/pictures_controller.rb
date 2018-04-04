@@ -1,10 +1,12 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_picture_tags_to_gon, only: :edit
+  before_action :set_available_picture_tags_to_gon
 
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.order("created_at DESC")
+    @pictures = Picture.order("created_at DESC").includes(:tags)
   end
 
   # GET /pictures/1
@@ -66,6 +68,14 @@ class PicturesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
       params.require(:picture).permit(:image, :tag_list)
+    end
+
+    def set_picture_tags_to_gon
+      gon.picture_tags = @picture.tag_list
+    end
+
+    def set_available_picture_tags_to_gon
+      gon.available_tags = Picture.tags_on(:tags).pluck(:name)
     end
 
 end
