@@ -31,8 +31,15 @@ class PicturesController < ApplicationController
     @picture = Picture.create(picture_params)
     exifData = @picture.get_exif_data.merge(picture_id: @picture.id)
     exif = Exif.create(exifData)
-    redirect_to root_path
-    binding.pry
+    respond_to do |format|
+      if @picture.save
+        format.html { redirect_to @picture, notice: 'exif情報を変更・追加・削除をしてください' }
+        format.json { render json: @picture, status: :created, location: @picture }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @picture.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /pictures/1
@@ -40,7 +47,7 @@ class PicturesController < ApplicationController
   def update
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
+        format.html { redirect_to @picture, notice: 'exif情報を変更・追加・削除をしてください' }
         format.json { render :show, status: :ok, location: @picture }
       else
         format.html { render :edit }

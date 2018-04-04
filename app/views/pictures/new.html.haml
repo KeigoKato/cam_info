@@ -1,9 +1,3 @@
 = render "shared/header"
 
--# .container.top_container
--#   %h1 画像を新規投稿
-  -# = render 'form', picture: @picture
-
 = render "/shared/preview", picture: @picture
-.container
-  = link_to 'Back', root_path

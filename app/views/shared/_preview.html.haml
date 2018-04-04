@@ -4,7 +4,7 @@
     .col-md-12.col-sm-12
       .row
         %h1.text-left 画像を新規投稿
-    .col-md-4.voffset30
+    .col-md-4.voffset10
       .row
         = form_for @picture do |f|
 
@@ -31,17 +31,22 @@
             .col-sm-12.col-sm-4
               %ul#picture-tags
 
+          .row.voffset10
+            .col-sm-12.col-sm-4
+              %p
+                ※ 写真をアップロードすると写真のexif情報も保存されますが、初期段階ではexif情報は全て非公開になっています。アップロード完了後にexif情報の公開設定や変更等を行えます。
+
           %span{class: "input-group-btn"}
-            .row
+            .row.voffset10
               .col-sm-12
-                %button.btn.btn-primary.btn-lg.btn-block{:type => "submit"} exif情報を取得
+                %button.btn.btn-primary.btn-lg.btn-block{:type => "submit"} 写真をアップロード
 
 
         .row.voffset10
           .col-sm-12.col-sm-4
             %button.btn.btn-warning.btn-block.btn-lg{type: "button", href: root_path, class: "center-block"} トップへ
 
-    .col-sm-12.col-md-8.voffset30
+    .col-sm-12.col-md-8.voffset10
       .thumbnail.text-center
         - if request.path_info == new_picture_path
           #preview
