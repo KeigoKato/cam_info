@@ -26,11 +26,9 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.new(picture_params)
-    @picture.save
+    @picture = Picture.create(picture_params)
     exifData = @picture.get_exif_data.merge(picture_id: @picture.id)
-    exif = Exif.new(exifData)
-    exif.save
+    exif = Exif.create(exifData)
     redirect_to root_path
   end
 
@@ -66,7 +64,7 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:image)
+      params.require(:picture).permit(:image, :tag_list)
     end
 
 end
