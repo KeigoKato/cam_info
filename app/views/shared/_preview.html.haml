@@ -22,16 +22,20 @@
           = f.file_field :image, id: "lefile", style: "display: none"
           %span{class: "input-group-btn"}
             .row
-              .col-sm-6
+              .col-sm-12
                 %button{type: "button",
                         class: "btn btn-default btn-lg btn-block",
                         onclick: "$('input[id=lefile]').click();"} 画像を選択
-              .col-sm-6
+
+          .row.voffset10
+            .col-sm-12.col-sm-4
+              %ul#picture-tags
+
+          %span{class: "input-group-btn"}
+            .row
+              .col-sm-12
                 %button.btn.btn-primary.btn-lg.btn-block{:type => "submit"} exif情報を取得
 
-        .row.voffset10
-          .col-sm-12.col-sm-4
-            %ul#picture-tags
 
         .row.voffset10
           .col-sm-12.col-sm-4

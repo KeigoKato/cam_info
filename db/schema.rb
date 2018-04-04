@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403112244) do
+ActiveRecord::Schema.define(version: 20180404021605) do
 
   create_table "exifs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "dataTime"
@@ -39,22 +39,6 @@ ActiveRecord::Schema.define(version: 20180403112244) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "dataTime"
-    t.string "make"
-    t.string "model"
-    t.string "imageSize"
-    t.string "lensType"
-    t.string "whiteBalace"
-    t.string "orientation"
-    t.string "fileType"
-    t.integer "ISO"
-    t.string "focalLength"
-    t.integer "exposureBias"
-    t.integer "fNumber"
-    t.string "focusDistance"
-    t.string "flash"
-    t.string "GPSLatitude"
-    t.string "GPSLongitude"
   end
 
   create_table "taggings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
