@@ -1,0 +1,65 @@
+= render "shared/header"
+
+.container.top_container
+  .row.voffset10
+    .col-md-12.col-sm-12
+      %h1.text-left exif情報を設定しましょう
+  .row.voffset10
+    .col-md-4.col-sm-12.voffset10
+      #preview
+        = image_tag @picture.image, style: "width: 100%"
+    .col-md-8.col-sm-12.voffset10
+      = form_for [@picture, @exif] do |f|
+
+        .panel.panel-default
+          .panel-heading
+            exif情報の公開設定と編集を行いましょう
+          .panel-body
+            %p 撮影日やGPS情報は個人情報の漏洩に繋がる恐れがあります。心配な方は、例えば「撮影日は日と時間は削除して年と月だけ表示する」、といった処理を施しましょう。
+          %table.table
+            %thead
+              %tr
+                %th exif種類
+                %th 公開？
+                %th exif変更
+            %tbody
+              %tr
+                %td 撮影日
+                %td Hanako
+                %td Qita
+              %tr
+                %td カメラメーカー
+                %td Taro
+                %td Qita
+              %tr
+                %td カメラモデル
+                %td Taro
+                %td Qita
+              %tr
+                %td レンズ
+                %td Taro
+                %td Qita
+              %tr
+                %td f値(絞り)
+                %td Taro
+                %td Qita
+
+
+
+
+
+
+
+        %p
+          ※ 写真をアップロードすると写真のexif情報も保存されますが、初期段階ではexif情報は全て非公開になっています。アップロード完了後にexif情報の公開設定や変更等を行えます。
+
+        %span{class: "input-group-btn"}
+          .row.voffset10
+            .col-sm-12
+              %button.btn.btn-primary.btn-lg.btn-block{:type => "submit"} 写真をアップロード
+
+
+        .row.voffset10
+          .col-sm-12.col-sm-4
+            %button.btn.btn-warning.btn-block.btn-lg{type: "button", href: root_path, class: "center-block"} トップへ
+
