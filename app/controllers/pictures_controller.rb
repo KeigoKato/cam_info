@@ -18,7 +18,6 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   def new
     @picture = Picture.new
-    @exif = Exif.new
   end
 
   # GET /pictures/1/edit
@@ -33,11 +32,11 @@ class PicturesController < ApplicationController
     exif = Exif.create(exifData)
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to @picture, notice: 'exif情報を変更・追加・削除をしてください' }
-        format.json { render json: @picture, status: :created, location: @picture }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
+        format.html { redirect_to "/pictures/#{@picture.id}/exifs/#{@picture.exif.id}/edit" }
+      #   format.json { render json: @picture, status: :created, location: @picture }
+      # else
+      #   format.html { render action: "new" }
+      #   format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
     end
   end
