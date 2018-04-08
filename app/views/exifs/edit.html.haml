@@ -19,16 +19,16 @@
           %table.table
             %thead
               %tr
-                %th.col-md-2 exif種類
+                %th.col-md-3 exif種類
                 %th.col-md-2.text-center 公開？
-                %th.col-md-8 取得したexif情報
+                %th.col-md-7 取得したexif情報
             %tbody
               %tr
                 %td 撮影日
                 %td.text-center
-                  %input{type: "checkbox", value: ""}
+                  %input{type: "checkbox", value: "", id: "check_dataTime"}
                 %td
-                  = f.text_field :dataTime, vale: @exif.dataTime, placeholder: "空です", class: "col-md-12"
+                  = f.text_field :dataTime, vale: @exif.dataTime, placeholder: "空です", class: "col-md-12", id: "text_dataTime"
               %tr
                 %td カメラメーカー
                 %td.text-center
@@ -42,7 +42,6 @@
                 %td
                   = f.text_field :cameraModel, vale: @exif.cameraModel, placeholder: "空です", class: "col-md-12"
               %tr
-              %tr
                 %td レンズ
                 %td.text-center
                   %input{type: "checkbox", value: ""}
@@ -54,6 +53,72 @@
                   %input{type: "checkbox", value: ""}
                 %td
                   = f.text_field :fNumber, vale: @exif.fNumber, placeholder: "空です", class: "col-md-12"
+              %tr
+                %td ホワイトバランス
+                %td.text-center
+                  %input{type: "checkbox", value: ""}
+                %td
+                  = f.text_field :whiteBalance, vale: @exif.whiteBalance, placeholder: "空です", class: "col-md-12"
+              %tr
+                %td カメラの向き
+                %td.text-center
+                  %input{type: "checkbox", value: ""}
+                %td
+                  = f.text_field :orientation, vale: @exif.orientation, placeholder: "空です", class: "col-md-12"
+              %tr
+                %td ファイルタイプ
+                %td.text-center
+                  %input{type: "checkbox", value: ""}
+                %td
+                  = f.text_field :fileType, vale: @exif.fileType, placeholder: "空です", class: "col-md-12"
+              %tr
+                %td ISO
+                %td.text-center
+                  %input{type: "checkbox", value: ""}
+                %td
+                  = f.text_field :ISO, vale: @exif.ISO, placeholder: "空です", class: "col-md-12"
+              %tr
+                %td 焦点距離
+                %td.text-center
+                  %input{type: "checkbox", value: ""}
+                %td
+                  = f.text_field :focalLength, vale: @exif.focalLength, placeholder: "空です", class: "col-md-12"
+              %tr
+                %td 露光補正
+                %td.text-center
+                  %input{type: "checkbox", value: ""}
+                %td
+                  = f.text_field :exposureBias, vale: @exif.exposureBias, placeholder: "空です", class: "col-md-12"
+              %tr
+                %td シャッタースピード
+                %td.text-center
+                  %input{type: "checkbox", value: ""}
+                %td
+                  = f.text_field :exposureTime, vale: @exif.exposureTime, placeholder: "空です", class: "col-md-12"
+              %tr
+                %td 被写体までの距離
+                %td.text-center
+                  %input{type: "checkbox", value: ""}
+                %td
+                  = f.text_field :focusDistance, vale: @exif.focusDistance, placeholder: "空です", class: "col-md-12"
+              %tr
+                %td フラッシュ
+                %td.text-center
+                  %input{type: "checkbox", value: ""}
+                %td
+                  = f.text_field :flash, vale: @exif.flash, placeholder: "空です", class: "col-md-12"
+              %tr
+                %td GPS緯度
+                %td.text-center
+                  %input{type: "checkbox", value: ""}
+                %td
+                  = f.text_field :GPSLatitude, vale: @exif.GPSLatitude, placeholder: "空です", class: "col-md-12"
+              %tr
+                %td GPS経度
+                %td.text-center
+                  %input{type: "checkbox", value: ""}
+                %td
+                  = f.text_field :GPSLongitude, vale: @exif.GPSLongitude, placeholder: "空です", class: "col-md-12"
 
 
 

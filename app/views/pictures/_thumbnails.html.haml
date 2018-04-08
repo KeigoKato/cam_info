@@ -3,7 +3,7 @@
     = link_to picture_path(picture) do
       = image_tag picture.image
     .caption
-      %h3 Thumbnail label
+      %p Thumbnail label
       %p ...
       - if picture.tags.present?
         - picture.tags.each do |tag|

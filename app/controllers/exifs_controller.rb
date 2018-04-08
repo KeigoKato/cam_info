@@ -6,6 +6,14 @@ class ExifsController < ApplicationController
   end
 
   def update
+    @exif = Exif.find_by(picture_id: params[:picture_id])
+    @exif.update(exif_params)
+    redirect_to root_path
+  end
+
+  def exif_params
+    # params.require(:exif).merge(picture_id: params[:picture_id])
+    params.require(:exif).permit(:dataTime, :make, :cameraModel, :lensType, :whiteBalance, :orientation, :fileType, :ISO, :focalLength, :exposureBias, :exposureTime, :fNumber, :focusDistance, :flash, :GPSLatitude, :GPSLongitude, :picture_id)
   end
 
 end
