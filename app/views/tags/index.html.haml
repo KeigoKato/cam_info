@@ -1,0 +1,10 @@
+= render "shared/header"
+
+.container.top_container
+  %h1
+    タグ一覧を表示して、タグ付けされている記事を検索できる
+  - tag_cloud(@tags, %w(tag-x-small tag-small tag-midium tag-large tag-x-large)) do |tag, css_class|
+    .label.label-warning
+      = link_to tag.name, { action: :index, tag_name: tag.name }, class: css_class
+
+
