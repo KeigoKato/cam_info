@@ -16,5 +16,8 @@
         - picture.tags.each do |tag|
           %span.label.label-warning
             = "#{tag.name} (#{tag.taggings_count})"
+        - picture.tags.each do |tag|
+          %span.label.label-warning
+            = "#{tag.name} (#{tag.taggings_count})"
 
 

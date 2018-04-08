@@ -2,15 +2,10 @@
 
 .container.top_container
   %h1
-    タグ一覧を表示して、タグ付けされている記事を検索できる
-
-  -# リンク先を付けるならこの記述
-  - tag_cloud(@tags, %w(tag-x-large tag-large tag-medium tag-small tag-x-small)) do |tag, css_class|
-    = link_to tag.name, { action: :index, id: tag.name }, class: css_class
-
-  -# リンク先が不要ならこの記述
-  - tag_cloud(@tags, %w(tag-x-large tag-large tag-medium tag-small tag-x-small)) do |tag, css_class|
-    %span{class: css_class}
-      %span{class: "label label-info"}
-        = tag.name
+    タグ一覧
+  .row
+    .col-md-8.col-md-offset-2{style: "line-height: 50px"}
+      - tag_cloud(@tags, %w(tag-x-small tag-small tag-medium tag-large tag-x-large)) do |tag, css_class|
+        %span{class: css_class}
+          = link_to tag.name, { action: :index, id: tag.name }, class: "label label-primary"
 
