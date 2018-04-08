@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :pictures do
     resources :exifs, only: [:edit, :update]
   end
+  resources :tags, only: :index
 end
