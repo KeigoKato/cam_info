@@ -3,12 +3,18 @@
     = link_to picture_path(picture) do
       = image_tag picture.image
     .caption
+
+      -# .media
+      -#   %a{href: "#", class: "pull-left"}
+      -#     = image_tag "/images/topImage.jpg", class: "media-object", alt: "..."
+      -#   .media-body
+      -#     %h4{class: "media-heading"}ユーザー名
+
       %p Thumbnail label
       %p ...
       - if picture.tags.present?
         - picture.tags.each do |tag|
           %span.label.label-warning
             = "#{tag.name} (#{tag.taggings_count})"
-      %p.voffset10
-        %a.btn.btn-default{href: picture_path(picture), role: "button"} 詳しく見る
-        %a.btn.btn-primary{href: edit_picture_path(picture), role: "button"} 編集
+
+
