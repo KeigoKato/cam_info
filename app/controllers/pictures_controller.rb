@@ -13,6 +13,8 @@ class PicturesController < ApplicationController
   # GET /pictures/1.json
   def show
     @picture = Picture.find(params[:id])
+    @exif = @picture.exif
+    @tags = @picture.tag_counts_on(:tags).order('taggings_count DESC')
   end
 
   # GET /pictures/new

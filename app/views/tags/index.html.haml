@@ -1,11 +1,11 @@
 = render "shared/header"
 
 .container.top_container
-  %h1
+  %h1.text-center
     タグ一覧
   .row
-    .col-md-8.col-md-offset-2{style: "line-height: 50px"}
+    .col-md-8.col-md-offset-2.voffset10{style: "line-height: 50px"}
       - tag_cloud(@tags, %w(tag-x-small tag-small tag-medium tag-large tag-x-large)) do |tag, css_class|
         %span{class: css_class}
-          = link_to tag.name, { action: :index, id: tag.name }, class: "label label-primary"
+          = link_to "#{tag.name} (#{tag.taggings_count})", { action: :index, id: tag.name }, class: "label label-primary"
 

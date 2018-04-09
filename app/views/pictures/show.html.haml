@@ -1,10 +1,125 @@
 = render "shared/header"
-%p#notice= notice
-%p
-  %strong Image:
-  = image_tag @picture.image
-= link_to 'Edit', edit_picture_path(@picture)
-|
-= link_to 'Back', pictures_path
+
+.container.top_container
+  .row.voffset10
+    .col-md-8.col-md-offset-2.col-sm-12
+      %h4
+        ユーザー名
+  .row.voffset10
+    .col-md-8.col-md-offset-2.col-sm-12.voffset10
+      #preview
+        = image_tag @picture.image, style: "width: 100%"
+  .row.voffset10
+    .col-md-12.col-sm-12.voffset10
+      .panel.panel-default
+        .panel-heading
+          exif情報の公開設定と編集を行いましょう
+        .panel-body{style: "line-height: 50px"}
+          %h4 タグ一覧
+          - tag_cloud(@tags, %w(tag-x-small tag-small tag-medium tag-large tag-x-large)) do |tag, css_class|
+            %span{class: css_class}
+              = link_to "#{tag.name} (#{tag.taggings_count})", { action: :index, id: tag.name }, class: "label label-primary"
+
+        %table.table.table-hover.text-center{style: "line-height: 50px"}
+          %thead
+            %tr
+              %th.col-md-2.text-center exif種類
+              %th.col-md-4.text-center 取得したexif情報
+              %th.col-md-6.text-center わかりやすい図
+          %tbody
+            %tr
+              %td 撮影日
+              %td
+                = @exif.dataTime
+              %td 図
+            %tr
+              %td カメラメーカー
+              %td
+                = @exif.make
+              %td 図
+            %tr
+              %td カメラモデル
+              %td
+                = @exif.cameraModel
+              %td 図
+            %tr
+              %td レンズ
+              %td
+                = @exif.lensType
+              %td 図
+            %tr
+              %td f値(絞り)
+              %td
+                = @exif.fNumber
+              %td 図
+            %tr
+              %td ホワイトバランス
+              %td
+                = @exif.whiteBalance
+              %td 図
+            %tr
+              %td カメラの向き
+              %td
+                = @exif.orientation
+              %td 図
+            %tr
+              %td ファイルタイプ
+              %td
+                = @exif.fileType
+              %td 図
+            %tr
+              %td ISO
+              %td
+                = @exif.ISO
+              %td 図
+            %tr
+              %td 焦点距離
+              %td
+                = @exif.focalLength
+              %td 図
+            %tr
+              %td 露光補正
+              %td
+                = @exif.exposureBias
+              %td 図
+            %tr
+              %td シャッタースピード
+              %td
+                = @exif.exposureTime
+              %td 図
+            %tr
+              %td 被写体までの距離
+              %td
+                = @exif.focusDistance
+              %td 図
+            %tr
+              %td フラッシュ
+              %td
+                = @exif.flash
+              %td 図
+            %tr
+              %td GPS緯度
+              %td
+                = @exif.GPSLatitude
+              %td 図
+            %tr
+              %td GPS経度
+              %td
+                = @exif.GPSLongitude
+              %td 図
+
+
+      %span{class: "input-group-btn"}
+        .row.voffset10
+          .col-sm-12
+            %button.btn.btn-primary.btn-lg.btn-block{:type => "submit"} 写真をアップロード
+
+
+      .row.voffset10
+        .col-sm-12.col-sm-4
+          %button.btn.btn-warning.btn-block.btn-lg{type: "button", href: root_path, class: "center-block"} トップへ
+
+
 = link_to "この投稿を削除", "/pictures/#{@picture.id}", method: :delete, class: "btn btn-primary"
 = link_to "この投稿を編集", edit_picture_path, class: "btn btn-primary"
+
