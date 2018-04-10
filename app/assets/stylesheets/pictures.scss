@@ -40,5 +40,14 @@ td {
 }
 
 .glyphicon {
+  text-decoration: none;
   font-size: 22px;
+}
+
+.like {
+  color: red;
+}
+
+.not-like {
+  color: black;
 }
