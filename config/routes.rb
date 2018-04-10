@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   resources :tags, only: :index
 
+  post "/likes/:picture_id/create" => "likes#create"
+
 end
