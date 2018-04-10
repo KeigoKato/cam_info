@@ -1,17 +1,15 @@
 .col-sm-12.col-md-4
-  .thumbnail{style: "height: 385px"}
+  .thumbnail{style: "height: 385px",}
     = link_to picture_path(picture) do
       = image_tag picture.image
     .caption
 
-      -# .media
-      -#   %a{href: "#", class: "pull-left"}
-      -#     = image_tag "/images/topImage.jpg", class: "media-object img-circle", alt: "..."
-      -#   .media-body
-      -#     %h4{class: "media-heading"}ユーザー名
-
       %p Thumbnail label
-      %p ...
+      - if Like.find_by(user_id: current_user, picture_id: picture.id)
+        いいね済み
+      - else
+        いいねしていない
+    .caption
       - if picture.tags.present?
         - picture.tags.each do |tag|
           %span.label.label-warning
