@@ -22,7 +22,10 @@
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            ユーザー名
+            - if user_signed_in?
+              ようこそ #{current_user.nickname} さん
+            - else
+              ユーザー名
             %span.caret
           %ul.dropdown-menu
             %li
@@ -31,4 +34,4 @@
               %a{:href => "#"} アカウント設定
             %li.divider{:role => "separator"}
             %li
-              %a{:href => "#"} ログアウト
+              = link_to 'サインアウト', destroy_user_session_path, method: :delete
