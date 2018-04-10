@@ -42,12 +42,15 @@ td {
 .glyphicon {
   text-decoration: none;
   font-size: 22px;
+  line-height: 22px;
 }
 
 .like {
   color: red;
+  text-decoration: none;
 }
 
-.not-like {
+.unlike {
   color: black;
+  text-decoration: none;
 }

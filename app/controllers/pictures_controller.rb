@@ -8,6 +8,7 @@ class PicturesController < ApplicationController
   # GET /pictures.json
   def index
     @pictures = Picture.order("created_at DESC").includes(:tags)
+    # @likes_count = Like.where(picture_id: @pictures.id).count
   end
 
   # GET /pictures/1
