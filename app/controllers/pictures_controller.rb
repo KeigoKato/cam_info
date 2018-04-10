@@ -2,6 +2,7 @@ class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
   before_action :set_picture_tags_to_gon, only: :edit
   before_action :set_available_picture_tags_to_gon
+  before_action :authenticate_user!
 
   # GET /pictures
   # GET /pictures.json
