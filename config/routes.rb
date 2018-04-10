@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   post "/likes/:picture_id/create" => "likes#create"
 
+  post "/likes/:picture_id/destroy" => "likes#destroy"
+
 end
