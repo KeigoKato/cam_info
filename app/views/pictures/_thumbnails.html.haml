@@ -6,9 +6,11 @@
 
       %p Thumbnail label
       - if Like.find_by(user_id: current_user, picture_id: picture.id)
-        いいね済み
+        = link_to "/likes/#{picture.id}/destroy", method: :post do
+          %span{class: "glyphicon glyphicon-heart"}
       - else
-        いいねしていない
+        = link_to "/likes/#{picture.id}/create", method: :post do
+          %span{class: "glyphicon glyphicon-heart-empty"}
     .caption
       - if picture.tags.present?
         - picture.tags.each do |tag|
