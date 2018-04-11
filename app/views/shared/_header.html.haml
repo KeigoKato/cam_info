@@ -12,7 +12,7 @@
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li
-          %a{href: tags_path} ハッシュタグ
+          = link_to "ハッシュタグ", tags_path
         %li
           %a{:href => root_path} ユーザー
       %form.navbar-form.navbar-left

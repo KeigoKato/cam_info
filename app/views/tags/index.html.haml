@@ -7,5 +7,9 @@
     .col-md-8.col-md-offset-2.voffset10{style: "line-height: 50px"}
       - tag_cloud(@tags, %w(tag-x-small tag-small tag-medium tag-large tag-x-large)) do |tag, css_class|
         %span{class: css_class}
-          = link_to "#{tag.name} (#{tag.taggings_count})", { action: :index, id: tag.name }, class: "label label-primary"
+          -# = link_to "#{tag.name} (#{tag.taggings_count})", { action: :index, tag_name: tag.name }, class: "label label-primary"
+          = link_to "#{tag.name} (#{tag.taggings_count})", tags_path(tag_name: tag.name), class: "label label-primary"
 
+  %p
+    - @pictures.each do |picture|
+      = image_tag picture.image

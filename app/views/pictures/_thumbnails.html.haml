@@ -5,18 +5,21 @@
     .caption
 
       %p Thumbnail label
-      - if Like.find_by(user_id: current_user, picture_id: picture.id)
-        = link_to "/likes/#{picture.id}/destroy", method: :post, class: "like" do
-          %span{class: "glyphicon glyphicon-heart like"}
-      - else
-        = link_to "/likes/#{picture.id}/create", method: :post, class: "unlike" do
-          %span{class: "glyphicon glyphicon-heart-empty unlike"}
-      %span{style: "font-size: 22px; line-height: 22px"}
-        = picture.likes.count
+
+      #like-btn
+        = render "likes/like", picture: picture
+
+      -# - if Like.find_by(user_id: current_user, picture_id: picture.id)
+      -#   = link_to "/likes/#{picture.id}/destroy", method: :post, class: "like", id: "like-btn" do
+      -#     %span{class: "glyphicon glyphicon-heart like"}
+      -# - else
+      -#   = link_to "/likes/#{picture.id}/create", method: :post, class: "unlike", id: "like-btn" do
+      -#     %span{class: "glyphicon glyphicon-heart-empty unlike"}
+      -# %span{style: "font-size: 22px; line-height: 22px"}
+      -#   = picture.likes.count
+
     .caption
       - if picture.tags.present?
         - picture.tags.each do |tag|
           %span.label.label-warning
             = "#{tag.name} (#{tag.taggings_count})"
-
-
