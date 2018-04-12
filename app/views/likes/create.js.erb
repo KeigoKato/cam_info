@@ -1,1 +1,1 @@
-$('#like-btn').html('<%= j(render "likes/like", picture: picture) %>');
+$('#thumbnails').html('<%= j(render partial: "/pictures/thumbnails", collection: @pictures, as: :picture) %>');
