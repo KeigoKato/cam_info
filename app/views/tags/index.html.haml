@@ -9,9 +9,3 @@
         %span{class: css_class}
           -# = link_to "#{tag.name} (#{tag.taggings_count})", { action: :index, tag_name: tag.name }, class: "label label-primary"
           = link_to "#{tag.name} (#{tag.taggings_count})", tags_path(tag_name: tag.name), class: "label label-primary"
-
-
-
-  -# %p
-  -#   - @pictures.each do |picture|
-  -#     = image_tag picture.image
