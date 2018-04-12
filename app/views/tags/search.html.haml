@@ -1,5 +1,5 @@
-%h1
-  showwwwwwwwwww
-.container
-  %p
-    = @pictures
+= render "/shared/header"
+
+.container.top_container
+  .row#thumbnails
+    = render partial: "/pictures/thumbnails", collection: @pictures, as: :picture
