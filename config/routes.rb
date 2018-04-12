@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :tags, only: :index
+  get "/tags/search" => "tags#search"
 
   post "/likes/:picture_id/create" => "likes#create"
 
