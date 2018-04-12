@@ -1,5 +1,8 @@
 = render "/shared/header"
 
 .container.top_container
-  .row#thumbnails
+  .row
+    %h1
+      「#{params[:tag_name]}」タグを含む写真
+  .row.voffset10#thumbnails
     = render partial: "/pictures/thumbnails", collection: @pictures, as: :picture
