@@ -1,21 +1,34 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      %h2{class: "text-center"} ログイン
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = devise_error_messages!
+        .voffset30
+        .row
+          .col-md-12.form-horizontal
+            .form-group
+              .col-md-3.control-label
+                ユーザー名
+              .col-md-9
+                = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "form-control", placeholder: "なまえ　名前　Name"
+          .col-md-12.form-horizontal
+            .form-group
+              .col-md-3.control-label
+                メールアドレス
+              .col-md-9
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "メールアドレス"
+          .col-md-12.form-horizontal
+            .form-group
+              .col-md-3.control-label
+                パスワード
+              .col-md-9
+                = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード（#{@minimum_password_length}文字以内）"
+          - if devise_mapping.rememberable?
+            .field.text-center
+              = f.check_box :remember_me
+              = f.label :remember_me
+          %button.btn.btn-primary.btn-lg.btn-block.voffset10{type: "submit"} ログイン
+          .text-center.voffset30
+            = render "devise/shared/links"
+

@@ -39,6 +39,6 @@
                 自己紹介
               .col-md-9
                 = f.text_area :profile, autofocus: true, autocomplete: "profile", class: "form-control", placeholder: "140文字以内で書きましょう", rows: 10, style: "resize: none"
-          %button.btn.btn-primary.btn-lg.btn-block{type: "submit"} ユーザー登録
+          %button.btn.btn-primary.btn-lg.btn-block.voffset10{type: "submit"} ユーザー登録
           .text-center.voffset30
             = render "devise/shared/links"
