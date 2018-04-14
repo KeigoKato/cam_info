@@ -38,8 +38,10 @@ class PicturesController < ApplicationController
       respond_to do |format|
           format.html { redirect_to "/pictures/#{@picture.id}/exifs/#{@picture.exif.id}/edit" }
       end
-    else
-      flash[:notice] = "画像を投稿できませんでした"
+    elsif @picture.errors.any?
+      @picture.errors.full_messages.each do |message|
+        flash[:warning] = "#{message}"
+      end
       render "/pictures/new"
     end
   end
