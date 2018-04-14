@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180414013149) do
+ActiveRecord::Schema.define(version: 20180414032810) do
 
   create_table "exifs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "dataTime"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20180414013149) do
     t.datetime "updated_at", null: false
     t.string "nickname"
     t.text "profile"
+    t.string "prof_img"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

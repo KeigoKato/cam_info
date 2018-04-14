@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :tags, only: :index
   get "/tags/search" => "tags#search"
 
+  resources :users, only: :show
+
   post "/likes/:picture_id/create" => "likes#create"
 
   post "/likes/:picture_id/destroy" => "likes#destroy"

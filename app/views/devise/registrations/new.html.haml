@@ -39,6 +39,19 @@
                 自己紹介
               .col-md-9
                 = f.text_area :profile, autofocus: true, autocomplete: "profile", class: "form-control", placeholder: "140文字以内で書きましょう", rows: 10, style: "resize: none"
+          .col-md-12.form-horizontal
+            .form-group
+              .col-md-3.control-label
+                プロフィール画像
+              .col-md-9
+                = f.file_field :prof_img, id: "lefile", style: "display: none"
+                %span{class: "input-group-btn"}
+                  .row
+                    .col-sm-12
+                      %button{type: "button",
+                              class: "btn btn-default btn-md btn-block",
+                              onclick: "$('input[id=lefile]').click();"} 画像を選択
+
           %button.btn.btn-primary.btn-lg.btn-block.voffset10{type: "submit"} ユーザー登録
           .text-center.voffset30
             = render "devise/shared/links"
