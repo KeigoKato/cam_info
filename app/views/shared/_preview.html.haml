@@ -51,15 +51,17 @@
         -# - if @picture.errors.any?
         -#   %p{style: "font-color: red"}
         -#     %h1 画像を選択してください
+
         - if @picture.errors.any?
           #error_explanation
             -# %h2
             -#   = pluralize(@picutre.errors.count, "error")
             -#   prohibited this picture from being saved:
-            %p
-              - @picture.errors.full_messages.each do |message|
-                %h1{style: "color: red"}
-                  = message
+            %h1{style: "color: red"}
+              ！！！エラー！！！
+            - @picture.errors.full_messages.each do |message|
+              %h1{style: "color: red"}
+                = message
 
     -# .col-sm-12.col-md-5
     -#   .thumbnail
