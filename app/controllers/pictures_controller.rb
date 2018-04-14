@@ -39,6 +39,7 @@ class PicturesController < ApplicationController
           format.html { redirect_to "/pictures/#{@picture.id}/exifs/#{@picture.exif.id}/edit" }
       end
     else
+      flash[:notice] = "画像を投稿できませんでした"
       render "/pictures/new"
     end
   end
