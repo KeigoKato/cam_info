@@ -7,7 +7,7 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.order("created_at DESC").includes(:tags)
+    @pictures = Picture.includes(:tags).order("created_at DESC")
     # @likes_count = Like.where(picture_id: @pictures.id).count
   end
 
@@ -31,17 +31,15 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.create(picture_params)
-    exifData = @picture.get_exif_data.merge(picture_id: @picture.id)
-    exif = Exif.create(exifData)
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to "/pictures/#{@picture.id}/exifs/#{@picture.exif.id}/edit" }
-      #   format.json { render json: @picture, status: :created, location: @picture }
-      # else
-      #   format.html { render action: "new" }
-      #   format.json { render json: @picture.errors, status: :unprocessable_entity }
+    @picture = Picture.new(picture_params)
+    if @picture.save
+      exifData = @picture.get_exif_data.merge(picture_id: @picture.id)
+      exif = Exif.create(exifData)
+      respond_to do |format|
+          format.html { redirect_to "/pictures/#{@picture.id}/exifs/#{@picture.exif.id}/edit" }
       end
+    else
+      render "/pictures/new"
     end
   end
 

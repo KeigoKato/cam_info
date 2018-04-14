@@ -9,14 +9,6 @@
         = form_for @picture do |f|
 
 
-          - if @picture.errors.any?
-            #error_explanation
-              %h2
-                = pluralize(@picutre.errors.count, "error")
-                prohibited this picture from being saved:
-              %ul
-                - @picture.errors.full_messages.each do |message|
-                  %li= message
 
 
           = f.file_field :image, id: "lefile", style: "display: none"
@@ -48,13 +40,27 @@
 
     .col-sm-12.col-md-8.voffset10
       .thumbnail.text-center
-        - if request.path_info == new_picture_path
-          #preview
-            %h1 ここに画像が表示されます
-        - elsif request.path_info == edit_picture_path(picture)
-          #preview
-            = image_tag picture.image
-            %h1 ここに画像が表示されます
+        -# - if request.path_info == new_picture_path
+        -#   #preview
+        -#     %h1 ここに画像が表示されます
+        -# - elsif request.path_info == edit_picture_path(picture)
+        -#   #preview
+        -#     = image_tag picture.image
+        -#     %h1 ここに画像が表示されます
+
+        -# - if @picture.errors.any?
+        -#   %p{style: "font-color: red"}
+        -#     %h1 画像を選択してください
+        - if @picture.errors.any?
+          #error_explanation
+            -# %h2
+            -#   = pluralize(@picutre.errors.count, "error")
+            -#   prohibited this picture from being saved:
+            %p
+              - @picture.errors.full_messages.each do |message|
+                %h1{style: "color: red"}
+                  = message
+
     -# .col-sm-12.col-md-5
     -#   .thumbnail
     -#     %p#exif exif情報
