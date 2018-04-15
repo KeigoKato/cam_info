@@ -1,37 +1,43 @@
-.navbar.navbar-default.navbar-fixed-top
-  -# .container-fluid
-  .container
-    / Brand and toggle get grouped for better mobile display
-    .navbar-header
-      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to "TOP", root_path, class: "navbar-brand"
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        %li
-          = link_to "ハッシュタグ", tags_path
-        %li
-          %a{:href => root_path} ユーザー
-      %form.navbar-form.navbar-left
-        .form-group
-          %input.form-control{:placeholder => "Search", :type => "text"}/
-        %button.btn.btn-default{:type => "submit"} Submit
-      %ul.nav.navbar-nav.navbar-right
-        %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            - if user_signed_in?
-              ようこそ #{current_user.nickname} さん
-            - else
-              ユーザー名
-            %span.caret
-          %ul.dropdown-menu
+- if user_signed_in?
+  #header
+    .navbar.navbar-default.navbar-fixed-top
+      -# .container-fluid
+      .container
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to "TOP", root_path, class: "navbar-brand"
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
             %li
-              = link_to "マイページ", user_path(current_user)
+              = link_to "ハッシュタグ", tags_path
             %li
-              %a{:href => "#"} アカウント設定
-            %li.divider{:role => "separator"}
-            %li
-              = link_to 'サインアウト', destroy_user_session_path, method: :delete
+              %a{:href => root_path} ユーザー
+          %form.navbar-form.navbar-left
+            .form-group
+              %input.form-control{:placeholder => "Search", :type => "text"}/
+            %button.btn.btn-default{:type => "submit"} Submit
+          %ul.nav.navbar-nav.navbar-right
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                - if user_signed_in?
+                  ようこそ #{current_user.nickname} さん
+                - else
+                  ユーザー名
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "マイページ", user_path(current_user)
+                %li
+                  %a{:href => "#"} アカウント設定
+                %li.divider{:role => "separator"}
+                %li
+                  = link_to 'サインアウト', destroy_user_session_path, method: :delete
+      = render "shared/message"
+- else
+  = render "shared/message"
+
