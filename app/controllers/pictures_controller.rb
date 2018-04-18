@@ -35,7 +35,7 @@ class PicturesController < ApplicationController
     if @picture.save
       exifData = @picture.get_exif_data.merge(picture_id: @picture.id)
       exif = Exif.create(exifData)
-      redirect_to "/pictures/#{@picture.id}/exifs/#{@picture.exif.id}/edit", sucesess: "Successfully"
+      redirect_to "/pictures/#{@picture.id}/exifs/#{@picture.exif.id}/edit", sucesess: "画像が保存されました　exif情報を追加してください"
     else
       redirect_to new_picture_path, warning: "画像を選択してください"
     end

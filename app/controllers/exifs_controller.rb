@@ -7,8 +7,8 @@ class ExifsController < ApplicationController
 
   def update
     @exif = Exif.find_by(picture_id: params[:picture_id])
-    @exif.update(exif_params)
-    redirect_to root_path
+    if @exif.update(exif_params)
+      redirect_to root_path, success: "exif情報が保存されました"
   end
 
   def exif_params
