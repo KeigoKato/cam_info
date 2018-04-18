@@ -4,3 +4,6 @@
   .row
     .col-md-4
       = image_tag current_user.prof_img.thumb.url, style: "border-radius: 10%"
+.container
+  .row#thumbnails
+    = render partial: "/pictures/thumbnails", collection: @pictures, as: :picture
