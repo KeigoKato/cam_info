@@ -6,6 +6,7 @@ class Picture < ApplicationRecord
 
   has_one :exif, dependent: :destroy
   has_many :likes
+  belongs_to :user
 
   # validates :image, presence: true
   validate :add_error_about_image
